@@ -1,3 +1,47 @@
 ---
 # SETUP TASKS
 
+- name: "SETUP - Install lynis"
+  apt:
+    name: lynis
+    state: present
+  update_cache: yes
+  tags:
+      - lynis
+
+- name: "SETUP - Install knockd"
+  apt:
+    name: knockd
+    state: present
+  update_cache: yes
+  notify: start knockd
+  tags:
+      - knockd
+
+- name: "SETUP - Edit knockd file conf"
+  template:
+      src: knockd.conf.j2
+      dest: /etc/knockd.conf
+      owner: root
+      group: root
+      mode: 0640
+  tags:
+      - knockd
+
+- name: "SETUP - Enable knockd"
+  replace: dest=/etc/default/knockd regexp='^(START_KNOCKD=)0$' replace='\g<1>1'
+  notify: restart knockd
+  tags:
+      - knockd
+
+
+- name: "SETUP - Ensure ufw service is enabled"
+  command: ufw --force enable
+  tags:
+      - knockd
+
+- name: "SETUP -  Ensure ufw service is enabled (allow default ports)"
+  command:  ufw allow "{{ item }}"
+  with_items: "{{ ufw_ports_allow }}"
+  tags:
+      - knockd

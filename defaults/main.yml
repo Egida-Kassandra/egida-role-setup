@@ -1,2 +1,7 @@
 ---
 # defaults file for egida-role-setup
+
+port_sequence_open: [7001,8002,9003]
+port_sequence_close: [9003,8002,7001]
+open_port: 3000
+ufw_ports_allow: ['ssh']
