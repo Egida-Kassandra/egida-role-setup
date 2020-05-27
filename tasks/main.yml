@@ -1,0 +1,5 @@
+---
+# tasks file for egida-role-setup
+
+- import_tasks: "setup.yml"
+  become: yes

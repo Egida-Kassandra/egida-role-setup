@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Antonio Paya Gonzalez
+  description: egida-role-setup
+  company: Universidad de Oviedo
+
+  license: Apache
+
+  min_ansible_version: 1.2
+
+  galaxy_tags:
+    - Egida
+    - Ubuntu
+    - CIS
+    - hardering
+    - security
+    - Ubuntu18.04
+
+dependencies: []
