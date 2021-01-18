@@ -26,6 +26,7 @@
     mode: "u=rwx,g=rwx,o=rwx"
 
 - name: "SETUP - Start Egida API Worker service"
-  service:
+  systemd:
     name: egida-api-worker
+    daemon_reload: yes
     state: started
