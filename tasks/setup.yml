@@ -19,11 +19,11 @@
 
 - name: "SETUP - Create Egida API Worker service"
   template:
-    src: services/egida-api-worker
-    dest: /etc/init.d/egida-api-worker
+    src: services/egida-api-worker.service
+    dest: /etc/systemd/system/egida-api-worker.service
     owner: root
     group: root
-    mode: 0600
+    mode: "u=rwx,g=rwx,o=rwx"
 
 - name: "SETUP - Start Egida API Worker service"
   service:

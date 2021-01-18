@@ -1,7 +1,6 @@
 ---
 
 - name: egida-role-setup
-  hosts: localhost
   connection: local
   become: yes
   
