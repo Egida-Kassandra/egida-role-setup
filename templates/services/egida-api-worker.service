@@ -7,7 +7,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart=/usr/bin/env /usr/local/bin/egida-api-worker
+ExecStart=/usr/local/bin/egida-api-worker
 
 [Install]
 WantedBy=multi-user.target
