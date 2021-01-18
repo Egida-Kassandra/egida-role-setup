@@ -9,39 +9,23 @@
   tags:
       - lynis
 
-- name: "SETUP - Install knockd"
-  apt:
-    name: knockd
-    state: present
-  update_cache: yes
-  notify: start knockd
+- name: "SETUP - Download Egida API Worker"
+  get_url:
+    url: https://github.com/antonioalfa22/egida-api-worker/releases/download/2.0.0/egida-api-worker
+    dest: /usr/local/bin/egida-api-worker
+    force_basic_auth: yes
   tags:
-      - knockd
+      - egida-api-worker
 
-- name: "SETUP - Edit knockd file conf"
+- name: "SETUP - Create Egida API Worker service"
   template:
-      src: knockd.conf.j2
-      dest: /etc/knockd.conf
-      owner: root
-      group: root
-      mode: 0640
-  tags:
-      - knockd
+    src: services/egida-api-worker
+    dest: /etc/init.d/egida-api-worker
+    owner: root
+    group: root
+    mode: 0600
 
-- name: "SETUP - Enable knockd"
-  replace: dest=/etc/default/knockd regexp='^(START_KNOCKD=)0$' replace='\g<1>1'
-  notify: restart knockd
-  tags:
-      - knockd
-
-
-- name: "SETUP - Ensure ufw service is enabled"
-  command: ufw --force enable
-  tags:
-      - knockd
-
-- name: "SETUP -  Ensure ufw service is enabled (allow default ports)"
-  command:  ufw allow "{{ item }}"
-  with_items: "{{ ufw_ports_allow }}"
-  tags:
-      - knockd
+- name: "SETUP - Start Egida API Worker service"
+  service:
+    name: egida-api-worker
+    state: started
