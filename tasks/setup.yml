@@ -5,7 +5,7 @@
   apt:
     name: lynis
     state: present
-  update_cache: yes
+    update_cache: yes
 
 - name: "SETUP - Download Egida API Worker"
   get_url:
