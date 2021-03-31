@@ -7,7 +7,7 @@
     state: present
   update_cache: yes
   tags:
-      - lynis
+    - lynis
 
 - name: "SETUP - Download Egida API Worker"
   get_url:
@@ -16,7 +16,7 @@
     force_basic_auth: yes
     mode: "u=rwx,g=rwx,o=rwx"
   tags:
-      - egida-api-worker
+    - egida-api-worker
 
 - name: "SETUP - Create Egida API Worker service"
   template:
