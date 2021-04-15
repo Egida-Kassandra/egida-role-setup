@@ -1,9 +1,9 @@
 # egida-role-setup
 
 <!-- PROJECT SHIELDS -->
-[![EGIDA VERSION](https://img.shields.io/badge/egida-v0.0.1-blue?style=for-the-badge&logo=ansible&color=ff69b4)](https://github.com/egida-kassandra/egida)
+[![EGIDA VERSION](https://img.shields.io/badge/egida-v2.0.0-blue?style=for-the-badge&logo=ansible&color=ff69b4)](https://github.com/egida-kassandra/egida)
 [![GitHub license](https://img.shields.io/badge/license-Apache-blue?style=for-the-badge)](https://github.com/egida-kassandra/egida-role-setup/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/badge/release-v.0.0.1-yellowgreen?style=for-the-badge)](https://github.com/egida-kassandra/egida-role-setup/releases)
+[![GitHub release](https://img.shields.io/badge/release-v.2.0.0-yellowgreen?style=for-the-badge)](https://github.com/egida-kassandra/egida-role-setup/releases)
 
 <!-- PROJECT LOGO -->
 
@@ -58,7 +58,9 @@ Getting Started
 
 ### Installation
 
-1. Download the source from [here](https://github.com/egida-kassandra/egida-role-setup/releases).
+```
+ansible-galaxy install antonioalfa22.egida_role_setup
+```
 
 <!-- EXAMPLE PLAYBOOK -->
 ## Example Playbook
