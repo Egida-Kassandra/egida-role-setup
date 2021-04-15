@@ -9,7 +9,7 @@
 
 - name: "SETUP - Download Egida API Worker"
   get_url:
-    url: https://github.com/antonioalfa22/egida-api-worker/releases/download/2.0.0/egida-api-worker
+    url: https://github.com/egida-kassandra/egida-api-worker/releases/download/2.0.0/egida-api-worker
     dest: /usr/local/bin/egida-api-worker
     force_basic_auth: yes
     mode: "u=rwx,g=rwx,o=rwx"
